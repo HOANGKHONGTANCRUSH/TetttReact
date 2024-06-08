@@ -6,7 +6,25 @@ import DisPlayInfor from "./Disolayinfor"
 
 class MyComponent extends React.Component {
 
-
+    state = {
+        listUsers: [
+            {
+                id: 1,
+                name: "Hoang",
+                age: '30',
+            },
+            {
+                id: 2,
+                name: "Hoa",
+                age: '20',
+            },
+            {
+                id: 3,
+                name: "Ha",
+                age: '90',
+            }
+        ]
+    }
 
 
     render() {
@@ -14,9 +32,11 @@ class MyComponent extends React.Component {
             <div>
                 <UserInfor />
                 <br />
-                <DisPlayInfor name="Hoang" age="28" />
-                <hr></hr>
-                <DisPlayInfor name="Hoa" age="20" />
+                <DisPlayInfor
+                    listUsers={this.state.listUsers}
+                    users={this.state.listUsers}
+                />
+
             </div>
         )
     }
