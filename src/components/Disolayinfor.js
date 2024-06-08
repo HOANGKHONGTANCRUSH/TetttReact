@@ -1,23 +1,61 @@
 import React from "react";
 
 class DisPlayInfor extends React.Component {
+
+    state = {
+        isShowisUser: true
+    }
+
+    handleShowHide = () => {
+        this.setState({
+            isShowisUser: !this.state.isShowisUser
+        })
+    }
     render() {
-
-
         const { listUsers } = this.props;
-        console.log(listUsers)
         //props => viet tat properties
         return (
             <div>
+                <div>
+                    <span onClick={() => { this.handleShowHide() }}>{this.state.isShowisUser === true ? "Show is user" : "Hide is user"}</span>
+                </div>
                 {listUsers.map((user, index) => {
-                    return (
-                        <div key={user.id}>
+                    console.log(">>>> check map user", user)
 
-                            <div>My name is {user.name} </div>
-                            <div>My age is {user.age} </div>
-                            <hr></hr>
+                    return (
+                        <div>
+                            {this.state.isShowisUser &&
+                                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
+                                    <div>My name is {user.name} </div>
+                                    <div>My age is {user.age} </div>
+                                    <hr></hr>
+                                </div>
+                            }
                         </div>
                     )
+
+
+
+                    {/* if (+user.age > 18) {
+                        return (
+                            <div key={user.id} className="green">
+
+                                <div>My name is {user.name} </div>
+                                <div>My age is {user.age} </div>
+                                <hr></hr>
+                            </div>
+                        )
+
+                    } else {
+                        return (
+                            <div key={user.id} className="red">
+
+                                <div>My name is {user.name} </div>
+                                <div>My age is {user.age} </div>
+                                <hr></hr>
+                            </div>
+                        )
+                    } */}
                 })}
                 {/* <div>My name is {name}</div>
                 <div>My age is {age}</div>

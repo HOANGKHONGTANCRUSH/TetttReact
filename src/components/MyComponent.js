@@ -1,7 +1,7 @@
 
 
 import React from "react"
-import UserInfor from "./userinfor"
+import AddUserinfors from "./AddUserinfors"
 import DisPlayInfor from "./Disolayinfor"
 
 class MyComponent extends React.Component {
@@ -16,7 +16,7 @@ class MyComponent extends React.Component {
             {
                 id: 2,
                 name: "Hoa",
-                age: '20',
+                age: '16',
             },
             {
                 id: 3,
@@ -26,15 +26,30 @@ class MyComponent extends React.Component {
         ]
     }
 
+    handleAddNewUser = (userObj) => {
+        // let listUsersnew = this.state.listUsers;
+
+        // listUsersnew.unshift(userObj);
+        // console.log('>>>', listUsersnew)
+        // this.setState({
+        //     listUsers: listUsersnew
+        // })
+
+        this.setState({
+            listUsers: [userObj, ...this.state.listUsers]
+        })
+    }
+
 
     render() {
         return (
             <div>
-                <UserInfor />
+                <AddUserinfors
+                    handleAddNewUser={this.handleAddNewUser}
+                />
                 <br />
                 <DisPlayInfor
                     listUsers={this.state.listUsers}
-                    users={this.state.listUsers}
                 />
 
             </div>
