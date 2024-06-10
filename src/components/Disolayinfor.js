@@ -26,7 +26,7 @@ class DisPlayInfor extends React.Component {
                     console.log(">>>> check map user", user)
 
                     return (
-                        <div>
+                        <>
                             {this.state.isShowisUser &&
                                 <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
                                     <div>My name is {user.name} </div>
@@ -34,7 +34,7 @@ class DisPlayInfor extends React.Component {
                                     <hr></hr>
                                 </div>
                             }
-                        </div>
+                        </>
                     )
 
 
