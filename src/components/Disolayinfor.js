@@ -1,4 +1,6 @@
 import React from "react";
+import './Displayinfro.scss'
+import logo from './../logo.svg'
 
 class DisPlayInfor extends React.Component {
 
@@ -15,7 +17,8 @@ class DisPlayInfor extends React.Component {
         const { listUsers } = this.props;
         //props => viet tat properties
         return (
-            <div>
+            <div className="display-infro-container">
+                <img src={logo} />
                 <div>
                     <span onClick={() => { this.handleShowHide() }}>{this.state.isShowisUser === true ? "Show is user" : "Hide is user"}</span>
                 </div>
