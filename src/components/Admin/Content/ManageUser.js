@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import './ManageUser.scss'
 import ModalCreateUser from './ModalCreateUser';
 
 
@@ -17,8 +15,8 @@ const ManageUser = (props) => {
         </div>
         <div>
           table user
-          <ModalCreateUser />
         </div>
+        <ModalCreateUser />
       </div>
     </div>
   )
