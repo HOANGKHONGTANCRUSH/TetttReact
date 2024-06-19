@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import './ManageUser.scss';
 import { FcPlus } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
-import { postCreateNewUser } from '../../../services/apiSevice';
+import { putUpdateUser } from '../../../services/apiSevice';
 import _ from "lodash"
 
 const ModalUpdateUser = (props) => {
@@ -18,6 +18,7 @@ const ModalUpdateUser = (props) => {
         setRole("USER");
         setImage("");
         setPreviewImage("");
+        props.resetUpdateData()
     };
     const handleShow = () => setShow(true);
 
@@ -30,7 +31,6 @@ const ModalUpdateUser = (props) => {
 
 
     useEffect(() => {
-        console.log("run useDffect", dataUpdate)
         if (!_.isEmpty(dataUpdate)) {
             setEmail(dataUpdate.email);
             setUsername(dataUpdate.username)
@@ -60,29 +60,28 @@ const ModalUpdateUser = (props) => {
     };
 
     const handSubmitCreateUser = async () => {
-        //validate
+        // validate
         const isValiEmail = validateEmail(email);
         if (!isValiEmail) {
             toast.error('invid email')
             return;
         }
-        if (!password) {
-            toast.error('invid password')
-        }
+        // if (!password) {
+        //     toast.error('invid password')
+        // }
 
 
-        let data = await postCreateNewUser(email, password, username, role, image)
+        let data = await putUpdateUser(dataUpdate.id, username, role, image)
         console.log(">>>> check res", data)
         if (data && data.EC === 0) {
             toast.success(data.EM)
             handleClose();
+            await props.fetchListUsers()
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)
         }
     }
-    console.log("run render dataupdate", dataUpdate)
-
     return (
         <>
             {/* <Button variant="primary" onClick={handleShow}>
