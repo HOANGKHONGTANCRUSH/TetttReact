@@ -29,7 +29,7 @@ const Login = (props) => {
         <div className="login-container">
             <div className='header'>
                 <span> Don't have an account yet?</span>
-                <button>Sign up</button>
+                <button onClick={() => { navigate('/Register') }}>Sign up</button>
             </div>
             <div className='title col-4 mx-auto'>
                 Hoang & Pham
@@ -45,19 +45,21 @@ const Login = (props) => {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                     />
-                </div><div className='form-group'>
+                </div>
+                <div className='form-group'>
                     <label>Password</label>
                     <input type={"password"}
                         className='form-control'
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                     />
+                    <span></span>
                 </div>
                 <span className='forgot-password'>Forgot password</span>
                 <div>
                     <button className='btn-submit'
                         onClick={() => handleLogin()}
-                    >Login</button>
+                    >Create my free account</button>
                 </div>
                 <div className='text-center'>
                     <span className='back' onClick={() => { navigate('/') }}> &#60;&#60; Go to Homepage</span>
