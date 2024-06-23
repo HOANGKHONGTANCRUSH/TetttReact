@@ -13,6 +13,7 @@ import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import Login from './components/Auth/Login';
 import Layout from './Layuot';
+import 'nprogress/nprogress.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
